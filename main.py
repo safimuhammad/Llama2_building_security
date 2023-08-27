@@ -9,11 +9,11 @@ import streamlit as st
 def llma_control(response):
     if st.secrets:
         os.environ['PAT'] = st.secrets['PAT']
-        
-    PAT = os.getenv("PAT")
+
+    CLARIFAI_PAT = os.getenv("PAT")
     print(PAT)
 
-    llm= Clarifai(clarifai_pat_key=PAT,user_id='clarifai',app_id='ml',model_id='llama2-13b-alternative-4k')
+    llm= Clarifai(pat=CLARIFAI_PAT,user_id='clarifai',app_id='ml',model_id='llama2-13b-alternative-4k')
     template = """
         YOUR ROLE:
         You are the a military personnel with experience in managing security and planning strategies, You manage a  prominent multi-story military building. Your responsibility includes monitoring and ensuring the safety of all occupants and military technology. You receive a call from the CCTV watchman reporting a potential suspicious activity on one of the floors. The watchman describes a situation where an individual is behaving unusually and appears to be acting in a way that raises suspicion.
