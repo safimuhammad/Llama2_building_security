@@ -11,7 +11,7 @@ def llma_control(response):
         os.environ['PAT'] = st.secrets['PAT']
 
     CLARIFAI_PAT = os.getenv("PAT")
-    print(PAT)
+    print(CLARIFAI_PAT)
 
     llm= Clarifai(pat=CLARIFAI_PAT,user_id='clarifai',app_id='ml',model_id='llama2-13b-alternative-4k')
     template = """
