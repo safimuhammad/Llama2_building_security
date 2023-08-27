@@ -65,7 +65,9 @@ def main():
                 
     
 if __name__ == '__main__':
-    load_dotenv()
+    # load_dotenv()
+    if st.secrets:
+        os.environ['PAT'] = st.secrets['PAT']
     if not os.path.exists("uploads"):
         os.makedirs("uploads")
     main()
