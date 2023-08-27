@@ -6,8 +6,9 @@ import os
 
 
 def llma_control(response):
-    load_dotenv()
+    
     PAT = os.getenv("PAT")
+    print(PAT)
 
     llm= Clarifai(clarifai_pat_key=PAT,user_id='clarifai',app_id='ml',model_id='llama2-13b-alternative-4k')
     template = """

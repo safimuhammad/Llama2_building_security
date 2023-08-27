@@ -6,6 +6,8 @@ import os
 import uuid
 import time
 import re
+from dotenv import load_dotenv  
+
 
 
 def save_uploaded_file(uploaded_file):
@@ -63,6 +65,7 @@ def main():
                 
     
 if __name__ == '__main__':
+    load_dotenv()
     if not os.path.exists("uploads"):
         os.makedirs("uploads")
     main()
