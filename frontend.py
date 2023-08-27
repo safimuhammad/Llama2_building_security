@@ -22,6 +22,7 @@ def save_uploaded_file(uploaded_file):
 def main():
     st.title("DefenceIQ")
     st.write("Upload an image to decide the course of action")
+    st.warning("Note: The Model might create blank or unrealistic responses or none at all due to high traffic on Clarifai")
 
 
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
@@ -46,7 +47,7 @@ def main():
                 st.write("No anomaly Detected")
             else:
                 action_plan= llma_control(status)
-                print(action_plan)
+                print(action_plan,"action plan")
                 st.sidebar.write(action_plan)
 
                 steps = re.split(r'\d+\.', action_plan)  # Split based on numbers followed by a period
