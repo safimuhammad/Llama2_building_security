@@ -8,7 +8,13 @@ import os
 
 
 def weapon_detection(image):
-    load_dotenv()
+    if st.secrets:
+        os.environ['PAT'] = st.secrets['PAT']
+        os.environ['USER_ID'] = st.secrets['USER_ID']
+        os.environ['WORKFLOW_ID'] = st.secrets['WORKFLOW_ID']
+        os.environ['APP_ID'] = st.secrets['APP_ID']
+
+    # load_dotenv()
     USER_ID = os.getenv("USER_ID")
     PAT = os.getenv("PAT")
     WORKFLOW_ID = os.getenv("WORKFLOW_ID")
