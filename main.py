@@ -3,10 +3,13 @@ from langchain import PromptTemplate, LLMChain
 from models import weapon_detection
 from dotenv import load_dotenv  
 import os
+import streamlit as st
 
 
 def llma_control(response):
-    
+    if st.secrets:
+        os.environ['PAT'] = st.secrets['PAT']
+        
     PAT = os.getenv("PAT")
     print(PAT)
 
